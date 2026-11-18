@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="800" height="800">
+  <defs>
+    <linearGradient id="maeternarosepetite" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6cdb8"/><stop offset=".5" stop-color="#d4917a"/><stop offset="1" stop-color="#8f5442"/></linearGradient>
+    <radialGradient id="daeternarosepetite" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#fff1ec"/><stop offset="1" stop-color="#f1cfc3"/></radialGradient>
+    <pattern id="meshaeternarosepetite" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 4 L4 0" stroke="#8f5442" stroke-width=".8"/></pattern>
+    <clipPath id="clipaeternarosepetite"><circle cx="200" cy="200" r="80"/></clipPath>
+    <filter id="shaeternarosepetite" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity=".35"/></filter>
+  </defs>
+  
+      <path d="M151.7 118 L157.7 0 L242.3 0 L248.3 118 Z" fill="#d4917a"/>
+      <path d="M151.7 282 L157.7 400 L242.3 400 L248.3 282 Z" fill="#d4917a"/>
+      
+      
+      <path d="M151.7 0 H248.3 V400 H151.7 Z" fill="url(#meshaeternarosepetite)" opacity=".5"/>
+  <g filter="url(#shaeternarosepetite)">
+    <rect x="286" y="187" width="22" height="26" rx="5" fill="url(#maeternarosepetite)" stroke="#8f5442"/>
+    <circle cx="200" cy="200" r="92" fill="url(#maeternarosepetite)" stroke="#8f5442" stroke-width="2"/>
+    
+    <circle cx="200" cy="200" r="80" fill="url(#daeternarosepetite)"/>
+    
+    <g clip-path="url(#clipaeternarosepetite)"><line x1="200" y1="134.4" x2="200" y2="122.4" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="232.8" y1="143.18873351174085" x2="238.8" y2="132.79642866632759" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="256.81126648825915" y1="167.20000000000002" x2="267.20357133367247" y2="161.20000000000002" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="265.6" y1="200" x2="277.6" y2="200" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="256.81126648825915" y1="232.79999999999998" x2="267.20357133367247" y2="238.79999999999998" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="232.8" y1="256.81126648825915" x2="238.8" y2="267.2035713336724" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="200" y1="265.6" x2="200" y2="277.6" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="167.20000000000002" y1="256.81126648825915" x2="161.20000000000002" y2="267.20357133367247" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="143.18873351174082" y1="232.79999999999998" x2="132.79642866632756" y2="238.79999999999998" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="134.4" y1="200" x2="122.4" y2="200" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="143.18873351174085" y1="167.2" x2="132.79642866632759" y2="161.2" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/><line x1="167.2" y1="143.18873351174085" x2="161.19999999999996" y2="132.79642866632759" stroke="#7a4334" stroke-width="4" stroke-linecap="round"/></g>
+    <text x="200" y="169.6" font-family="Georgia, serif" font-size="8.8" letter-spacing="3" text-anchor="middle" fill="#7a4334">AETERNA</text>
+    
+  <line x1="200" y1="200" x2="167.2339182284403" y2="177.05694254595818" stroke="#7a4334" stroke-width="7" stroke-linecap="round"/>
+  <line x1="200" y1="200" x2="254.039985196149" y2="168.8" stroke="#7a4334" stroke-width="5" stroke-linecap="round"/>
+  <line x1="200" y1="200" x2="176.74263025385454" y2="263.8990982134418" stroke="#c6a662" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="200" cy="200" r="6" fill="#7a4334"/><circle cx="200" cy="200" r="2.5" fill="#c6a662"/>
+    <ellipse cx="176" cy="164" rx="44" ry="20" fill="#fff" opacity=".07" transform="rotate(-25 200 200)"/>
+  </g>
+</svg>

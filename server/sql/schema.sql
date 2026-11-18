@@ -1,0 +1,170 @@
+-- EVERENTIA database schema (MySQL 8+)
+CREATE DATABASE IF NOT EXISTS `__DB_NAME__` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `__DB_NAME__`;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(190) NOT NULL UNIQUE,
+  phone VARCHAR(30) NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  role ENUM('customer','admin') NOT NULL DEFAULT 'customer',
+  points INT NOT NULL DEFAULT 0,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  slug VARCHAR(190) NOT NULL UNIQUE,
+  name VARCHAR(190) NOT NULL,
+  brand VARCHAR(120) NOT NULL,
+  type ENUM('classic','sport','statement','dress','smart') NOT NULL DEFAULT 'classic',
+  gender ENUM('men','women','unisex') NOT NULL DEFAULT 'unisex',
+  price DECIMAL(10,2) NOT NULL,
+  mrp DECIMAL(10,2) NULL,
+  stock INT NOT NULL DEFAULT 0,
+  stock_status ENUM('in_stock','low_stock','preorder','out_of_stock') NOT NULL DEFAULT 'in_stock',
+  description TEXT NULL,
+  specs JSON NULL,
+  tags JSON NULL,
+  image VARCHAR(500) NULL,
+  try_on_image VARCHAR(500) NULL,
+  images JSON NULL,
+  is_featured TINYINT(1) NOT NULL DEFAULT 0,
+  is_new TINYINT(1) NOT NULL DEFAULT 0,
+  is_vault TINYINT(1) NOT NULL DEFAULT 0,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_products_brand (brand),
+  INDEX idx_products_type (type),
+  INDEX idx_products_price (price)
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  order_number VARCHAR(30) NOT NULL UNIQUE,
+  user_id INT NULL,
+  customer_name VARCHAR(120) NOT NULL,
+  email VARCHAR(190) NOT NULL,
+  phone VARCHAR(30) NOT NULL,
+  address_line1 VARCHAR(255) NOT NULL,
+  address_line2 VARCHAR(255) NULL,
+  city VARCHAR(100) NOT NULL,
+  state VARCHAR(100) NOT NULL,
+  pincode VARCHAR(12) NOT NULL,
+  notes VARCHAR(500) NULL,
+  gift_wrap TINYINT(1) NOT NULL DEFAULT 0,
+  subtotal DECIMAL(10,2) NOT NULL,
+  shipping DECIMAL(10,2) NOT NULL DEFAULT 0,
+  discount DECIMAL(10,2) NOT NULL DEFAULT 0,
+  total DECIMAL(10,2) NOT NULL,
+  payment_method ENUM('cod','upi') NOT NULL DEFAULT 'cod',
+  payment_ref VARCHAR(120) NULL,
+  payment_status ENUM('pending','paid','refunded') NOT NULL DEFAULT 'pending',
+  status ENUM('placed','confirmed','shipped','delivered','cancelled') NOT NULL DEFAULT 'placed',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS order_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  order_id INT NOT NULL,
+  product_id INT NULL,
+  name VARCHAR(190) NOT NULL,
+  brand VARCHAR(120) NOT NULL,
+  image VARCHAR(500) NULL,
+  price DECIMAL(10,2) NOT NULL,
+  qty INT NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS partners (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  business VARCHAR(190) NOT NULL,
+  email VARCHAR(190) NOT NULL,
+  phone VARCHAR(30) NOT NULL,
+  city VARCHAR(100) NULL,
+  partner_type VARCHAR(60) NULL,
+  message TEXT NULL,
+  status ENUM('new','contacted','approved','rejected') NOT NULL DEFAULT 'new',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS care_articles (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  slug VARCHAR(190) NOT NULL UNIQUE,
+  title VARCHAR(190) NOT NULL,
+  category VARCHAR(80) NOT NULL,
+  excerpt VARCHAR(500) NOT NULL,
+  body TEXT NOT NULL,
+  read_minutes INT NOT NULL DEFAULT 3,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS policies (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  slug VARCHAR(80) NOT NULL UNIQUE,
+  title VARCHAR(190) NOT NULL,
+  body TEXT NOT NULL,
+  sort_order INT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS drops (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(190) NOT NULL,
+  description TEXT NULL,
+  product_id INT NULL,
+  release_at DATETIME NOT NULL,
+  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS drop_alerts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  drop_id INT NOT NULL,
+  contact VARCHAR(190) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY uniq_alert (drop_id, contact),
+  FOREIGN KEY (drop_id) REFERENCES drops(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS community_posts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NULL,
+  author_name VARCHAR(120) NOT NULL,
+  caption VARCHAR(500) NOT NULL,
+  image VARCHAR(500) NOT NULL,
+  product_id INT NULL,
+  likes INT NOT NULL DEFAULT 0,
+  is_approved TINYINT(1) NOT NULL DEFAULT 1,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
+  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS capsules (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  title VARCHAR(190) NOT NULL,
+  message TEXT NOT NULL,
+  product_id INT NULL,
+  open_at DATE NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS reviews (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  product_id INT NOT NULL,
+  user_id INT NULL,
+  author_name VARCHAR(120) NOT NULL,
+  rating TINYINT NOT NULL,
+  comment VARCHAR(1000) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);

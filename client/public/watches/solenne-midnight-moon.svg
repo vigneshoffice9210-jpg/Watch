@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="800" height="800">
+  <defs>
+    <linearGradient id="msolennemidnightmoon" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dc9a"/><stop offset=".5" stop-color="#c6a662"/><stop offset="1" stop-color="#8a6a2c"/></linearGradient>
+    <radialGradient id="dsolennemidnightmoon" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#1d2b55"/><stop offset="1" stop-color="#0a1230"/></radialGradient>
+    <pattern id="meshsolennemidnightmoon" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 4 L4 0" stroke="#8a6a2c" stroke-width=".8"/></pattern>
+    <clipPath id="clipsolennemidnightmoon"><circle cx="200" cy="200" r="96"/></clipPath>
+    <filter id="shsolennemidnightmoon" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity=".35"/></filter>
+  </defs>
+  
+      <path d="M143.3 102 L149.3 0 L250.7 0 L256.7 102 Z" fill="#14213d"/>
+      <path d="M143.3 298 L149.3 400 L250.7 400 L256.7 298 Z" fill="#14213d"/>
+      <path d="M151.3 92 L156.3 0 M248.7 92 L243.7 0 M151.3 308 L156.3 400 M248.7 308 L243.7 400" stroke-dasharray="5 4" stroke="#c6a662" stroke-opacity=".55" stroke-width="1.2" fill="none"/>
+      
+      
+  <g filter="url(#shsolennemidnightmoon)">
+    <rect x="302" y="187" width="22" height="26" rx="5" fill="url(#msolennemidnightmoon)" stroke="#8a6a2c"/>
+    <circle cx="200" cy="200" r="108" fill="url(#msolennemidnightmoon)" stroke="#8a6a2c" stroke-width="2"/>
+    
+    <circle cx="200" cy="200" r="96" fill="url(#dsolennemidnightmoon)"/>
+    <path d="M171.2 252.8 A 28.799999999999997 28.799999999999997 0 0 1 228.8 252.8 Z" fill="#0b1630" stroke="#c6a662"/>
+      <circle cx="200" cy="240.32" r="9.600000000000001" fill="#f3dc9a"/>
+    <g clip-path="url(#clipsolennemidnightmoon)"><line x1="200" y1="121.28" x2="200" y2="106.88" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="239.36" y1="131.82648021408897" x2="246.56" y2="119.35571439959307" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="268.173519785911" y1="160.64000000000001" x2="280.64428560040693" y2="153.44" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="278.72" y1="200" x2="293.12" y2="200" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="268.173519785911" y1="239.35999999999999" x2="280.64428560040693" y2="246.56" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="239.36" y1="268.173519785911" x2="246.56" y2="280.64428560040693" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="200" y1="278.72" x2="200" y2="293.12" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="160.64000000000001" y1="268.173519785911" x2="153.44000000000003" y2="280.64428560040693" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="131.82648021408897" y1="239.35999999999999" x2="119.35571439959307" y2="246.56" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="121.28" y1="200" x2="106.88" y2="200" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="131.82648021408897" y1="160.64" x2="119.35571439959307" y2="153.44" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/><line x1="160.63999999999996" y1="131.826480214089" x2="153.43999999999994" y2="119.35571439959308" stroke="#f3dc9a" stroke-width="4" stroke-linecap="round"/></g>
+    <text x="200" y="163.51999999999998" font-family="Georgia, serif" font-size="10.56" letter-spacing="3" text-anchor="middle" fill="#f3dc9a">SOLENNE</text>
+    
+  <line x1="200" y1="200" x2="160.68070187412837" y2="172.4683310551498" stroke="#f3dc9a" stroke-width="7" stroke-linecap="round"/>
+  <line x1="200" y1="200" x2="264.84798223537877" y2="162.56" stroke="#f3dc9a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="200" y1="200" x2="172.09115630462543" y2="276.6789178561301" stroke="#c6a662" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="200" cy="200" r="6" fill="#f3dc9a"/><circle cx="200" cy="200" r="2.5" fill="#c6a662"/>
+    <ellipse cx="171.2" cy="156.8" rx="52.800000000000004" ry="24" fill="#fff" opacity=".07" transform="rotate(-25 200 200)"/>
+  </g>
+</svg>

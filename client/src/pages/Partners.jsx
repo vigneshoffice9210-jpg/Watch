@@ -5,7 +5,7 @@ import { api } from '../lib/api';
 import { Button, ErrorNote, Field, PageHeader } from '../components/ui';
 
 const TYPES = [
-  ['retail', 'Retail store', Store, 'Stock Everentia timepieces in your boutique.'],
+  ['retail', 'Retail store', Store, 'Stock Basha Gadgets timepieces in your boutique.'],
   ['reseller', 'Online reseller', Users, 'Sell our collection through your channels.'],
   ['creator', 'Creator / influencer', Megaphone, 'Collaborate on content and launches.'],
 ];
@@ -26,7 +26,7 @@ export default function Partners() {
 
   return (
     <>
-      <PageHeader eyebrow="Become a partner" lines={['GROW', 'WITH EVERENTIA.']}>Retailers, resellers and creators — let's build something timeless together.</PageHeader>
+      <PageHeader eyebrow="Become a partner" lines={['TEAM UP', 'WITH US.']}>Retailers, resellers and creators — let's build something timeless together.</PageHeader>
       <div className="container-x grid gap-12 py-10 lg:grid-cols-[1fr_1.3fr]">
         <div className="space-y-4">
           {TYPES.map(([k, l, Icon, d], i) => (

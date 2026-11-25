@@ -70,7 +70,7 @@ export default function Community({ share = false }) {
   const posts = data?.posts || [];
   return (
     <>
-      <PageHeader eyebrow="Style Board" lines={['WORN', 'BEAUTIFULLY.']}>Real wrists, real moments. See how the Everentia community wears their timepieces — and share yours.</PageHeader>
+      <PageHeader eyebrow="Style Board" lines={['WORN', 'BEAUTIFULLY.']}>Real wrists, real moments. See how the Basha Gadgets community wears their timepieces — and share yours.</PageHeader>
       <div className="container-x py-10">
         <Button onClick={() => setOpen(true)} className="mb-8"><Plus /> Share your look</Button>
         {loading ? <Spinner /> : error ? <ErrorNote error={error} /> : !posts.length ? (

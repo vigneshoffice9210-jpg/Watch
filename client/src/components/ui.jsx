@@ -4,8 +4,8 @@ const cx = (...c) => c.filter(Boolean).join(' ');
 export { cx };
 
 const VARIANTS = {
-  default: 'btn-sheen bg-gradient-to-r from-primary to-gold-soft text-primary-foreground shadow-[0_8px_24px_-10px_rgb(var(--gold-rgb)/0.6)] hover:shadow-[0_12px_32px_-8px_rgb(var(--gold-rgb)/0.75)] hover:-translate-y-0.5',
-  outline: 'border border-primary/60 text-foreground hover:border-primary hover:bg-primary/10 hover:-translate-y-0.5',
+  default: 'btn-sheen btn-cut bg-gradient-to-b from-gold-soft via-primary to-[#a50d17] text-primary-foreground shadow-[0_8px_24px_-10px_rgb(var(--gold-rgb)/0.8)] hover:shadow-[0_12px_36px_-6px_rgb(var(--gold-rgb)/0.9)] hover:-translate-y-0.5',
+  outline: 'border border-silver/50 text-foreground hover:border-primary hover:bg-primary/10 hover:-translate-y-0.5',
   ghost: 'text-foreground hover:bg-accent',
   secondary: 'bg-secondary text-secondary-foreground hover:bg-accent hover:-translate-y-0.5',
   destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
@@ -19,7 +19,7 @@ const SIZES = {
 
 export function Button({ variant = 'default', size = 'default', className, to, href, children, ...props }) {
   const cls = cx(
-    'inline-flex items-center justify-center gap-2 rounded-md uppercase font-normal transition-all duration-300 ease-out active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40 [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer',
+    'inline-flex items-center justify-center gap-2 rounded-sm uppercase font-semibold transition-all duration-300 ease-out active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40 [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer',
     VARIANTS[variant], SIZES[size], className,
   );
   if (to) return <Link to={to} className={cls} {...props}>{children}</Link>;
@@ -27,7 +27,7 @@ export function Button({ variant = 'default', size = 'default', className, to, h
   return <button className={cls} {...props}>{children}</button>;
 }
 
-/** Uppercase serif display heading split across lines, e.g. ["THREE STEPS.", "ONE PERFECT VIEW."] */
+/** Uppercase condensed-italic display heading split across lines, e.g. ["THREE STEPS.", "ONE PERFECT VIEW."] */
 // h1 lines rise in one by one on load; h2 headings reveal as they scroll into view.
 // The last line of a multi-line heading gets the animated gold shimmer.
 export function Display({ lines, as: Tag = 'h2', className, delay = 0 }) {

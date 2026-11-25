@@ -26,7 +26,7 @@ export default function Discover() {
   useTitle('Discover');
   return (
     <>
-      <PageHeader eyebrow="All experiences" lines={['DISCOVER', 'EVERENTIA.']}>More than a store — tools to help you find, try and live with the right timepiece.</PageHeader>
+      <PageHeader eyebrow="All experiences" lines={['DISCOVER', 'BASHA GADGETS.']}>More than a store — tools to help you find, try and live with the right timepiece.</PageHeader>
       <div className="container-x my-10">
       <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
         {ITEMS.map(({ to, title, text, icon: Icon }, i) => (

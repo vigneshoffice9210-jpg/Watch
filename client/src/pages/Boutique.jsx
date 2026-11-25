@@ -35,7 +35,7 @@ export default function Boutique() {
   return (
     <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_50%_20%,rgb(var(--gold-rgb)/0.16),transparent_60%)]">
       <div className="container-x pt-14 text-center">
-        <p className="eyebrow mb-4">Everentia Virtual Boutique</p>
+        <p className="eyebrow mb-4">Basha Gadgets Virtual Boutique</p>
         <h1 className="display-xl text-5xl sm:text-7xl">STEP INSIDE.<span className="block text-primary">EXPLORE TIME.</span></h1>
         <p className="mx-auto mt-5 max-w-lg text-sm text-muted-foreground">Walk the boutique, approach the glass showcases, inspect every timepiece and try it on your wrist.</p>
       </div>

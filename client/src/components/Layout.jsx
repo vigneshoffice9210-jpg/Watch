@@ -5,6 +5,7 @@ import { Heart, Menu, ShoppingBag, User, X, MessageCircle, ArrowUpRight, LayoutD
 import { useStore } from '../context/StoreContext';
 import { BRAND, EXPERIENCES } from '../config';
 import { cx } from './ui';
+import { Emblem } from './Brand';
 
 const NAV = [
   { to: '/collection', label: 'Collection' },
@@ -15,11 +16,13 @@ const NAV = [
 
 export function Logo({ compact }) {
   return (
-    <Link to="/" className="group flex items-center gap-3" aria-label="EVERENTIA home">
-      <img src="/emblem.svg" alt="" className="h-10 w-10 transition-transform duration-700 ease-out group-hover:rotate-[360deg] sm:h-11 sm:w-11" />
+    <Link to="/" className="group flex items-center gap-2.5" aria-label="Basha Gadgets home">
+      <Emblem className="h-10 w-10 drop-shadow-[0_0_10px_rgb(var(--gold-rgb)/0.55)] transition-transform duration-700 ease-out group-hover:rotate-[360deg] sm:h-11 sm:w-11" />
       <span className="leading-none">
-        <span className="block font-serif text-xl tracking-[0.28em] sm:text-2xl">{BRAND.name}</span>
-        {!compact && <span className="mt-1 block text-[8px] uppercase tracking-[0.3em] text-muted-foreground sm:text-[9px]">{BRAND.tagline}</span>}
+        <span className="block font-serif text-[1.55rem] font-extrabold italic tracking-[0.02em] sm:text-[1.8rem]">
+          <span className="text-chrome">BASHA</span><span className="text-hero-red">GADGETS</span>
+        </span>
+        {!compact && <span className="mt-0.5 block text-[8px] font-medium uppercase tracking-[0.42em] text-foreground/80 sm:text-[9px]">{BRAND.tagline}</span>}
       </span>
     </Link>
   );
@@ -92,7 +95,7 @@ function Drawer({ open, onClose }) {
           <button onClick={onClose} className="flex h-10 w-10 items-center justify-center hover:text-primary" aria-label="Close menu"><X className="h-5 w-5" /></button>
         </div>
         <div className="flex-1 overflow-y-auto px-6 py-6">
-          <p className="eyebrow mb-4">Experience</p>
+          <p className="eyebrow mb-4">Mission control</p>
           <ul className="space-y-0.5">
             {EXPERIENCES.map((e, i) => (
               <li key={e.to} className="drawer-item" style={stagger(i, 40, 14)}>
@@ -136,7 +139,7 @@ function Footer() {
         <div data-reveal>
           <Logo />
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Distinctive timepieces, chosen with care — and seen on your own wrist before you buy.
+            Premium watches with hero-grade style — picked for power, precision and presence, and seen on your own wrist before you buy.
           </p>
         </div>
         <div data-reveal style={stagger(1, 120)}>
@@ -162,7 +165,7 @@ function Footer() {
       </div>
       <div className="border-t border-border/50">
         <div className="container-x flex flex-col gap-2 py-6 text-[11px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {BRAND.name}. {BRAND.tagline}.</p>
+          <p>© {new Date().getFullYear()} {BRAND.shortName}. {BRAND.tagline}.</p>
           <p>Product imagery and warranties are subject to verification.</p>
         </div>
       </div>

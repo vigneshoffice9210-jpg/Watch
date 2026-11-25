@@ -133,7 +133,7 @@ export default function TryOn({ mirror = false }) {
     ctx.restore();
     const a = document.createElement('a');
     a.href = c.toDataURL('image/jpeg', 0.92);
-    a.download = `everentia-try-on-${watch.slug}.jpg`;
+    a.download = `basha-gadgets-try-on-${watch.slug}.jpg`;
     a.click();
   };
 
@@ -152,7 +152,7 @@ export default function TryOn({ mirror = false }) {
 
   return (
     <>
-      <PageHeader eyebrow={mirror ? 'Everentia Live Mirror' : 'Everentia AI Virtual Try-On'} lines={['SEE IT', 'ON YOUR WRIST.']}>
+      <PageHeader eyebrow={mirror ? 'Basha Gadgets Live Mirror' : 'Basha Gadgets AI Virtual Try-On'} lines={['SEE IT', 'ON YOUR WRIST.']}>
         Upload your wrist. Choose a timepiece. See how it looks on you. Drag the watch into place, pinch or scroll to resize, and save your look.
       </PageHeader>
 

@@ -25,6 +25,6 @@ export function useProducts(params) {
 
 export function useTitle(title) {
   useEffect(() => {
-    document.title = title ? `${title} — EVERENTIA` : 'Everentia | Official Online Watch Store';
+    document.title = title ? `${title} — Basha Gadgets` : 'Basha Gadgets | Premium Watches';
   }, [title]);
 }

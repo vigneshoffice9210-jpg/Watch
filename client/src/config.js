@@ -1,10 +1,11 @@
 // Store-wide settings. Edit these to match your business.
 export const BRAND = {
-  name: 'EVERENTIA',
-  tagline: 'Where time meets elegance',
+  name: 'BASHA GADGETS',
+  shortName: 'Basha Gadgets',
+  tagline: 'Premium Watches',
   whatsappDisplay: '+91 90253 79268',
   whatsappNumber: '919025379268',
-  upiId: 'everentia@upi',
+  upiId: 'bashagadgets@upi', // TODO: set your real UPI ID
   freeShippingAbove: 999,
 };
 
@@ -13,7 +14,7 @@ export const EXPERIENCES = [
   { to: '/collection', label: 'The Collection', desc: 'Every timepiece, curated.' },
   { to: '/find-my-watch', label: 'Find My Watch', desc: 'Answer five questions, meet your match.' },
   { to: '/gift-finder', label: 'Gift Finder', desc: 'The right watch for the right person.' },
-  { to: '/discover', label: 'All experiences', desc: 'Everything Everentia, in one place.' },
+  { to: '/discover', label: 'All experiences', desc: 'Everything Basha Gadgets, in one place.' },
   { to: '/community', label: 'Style Board', desc: 'See how others wear theirs.' },
   { to: '/care', label: 'Watch Care Hub', desc: 'Keep your timepiece beautiful.' },
   { to: '/capsules', label: 'Time Capsule', desc: 'Seal a message for a future moment.' },

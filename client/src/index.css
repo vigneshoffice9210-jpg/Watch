@@ -1,51 +1,55 @@
 @import "tailwindcss";
 
 /* ============================================================
-   EVERENTIA theme — Midnight Navy & Brushed Gold
+   BASHA GADGETS theme — Hero Red, Chrome Silver & Carbon Black
    Change the palette here; every page reads these tokens.
+   Note: the accent tokens keep their old names (--gold, bg-gold,
+   text-gold…) so components need no changes. "gold" now means the
+   brand accent: hero red.
    ============================================================ */
 :root {
-  --radius: .375rem;
+  --radius: .25rem;
 
-  /* Surfaces */
-  --background: oklch(17% .032 258);        /* ink navy */
-  --deep: oklch(13.5% .03 258);             /* footer, stages, drawers */
-  --card: oklch(21% .036 258);
-  --popover: oklch(22% .038 258);
-  --secondary: oklch(26% .04 258);
-  --muted: oklch(24% .036 258);
-  --accent: oklch(28% .045 258);
-  --border: oklch(33% .04 258);
-  --input: oklch(35% .04 258);
+  /* Surfaces — carbon black with a red cast */
+  --background: oklch(14.5% .018 20);
+  --deep: oklch(11% .016 20);               /* footer, stages, drawers */
+  --card: oklch(18.5% .022 20);
+  --popover: oklch(20% .024 20);
+  --secondary: oklch(23% .028 20);
+  --muted: oklch(21% .024 20);
+  --accent: oklch(26% .04 22);
+  --border: oklch(30% .035 22);
+  --input: oklch(34% .035 22);
 
   /* Text */
-  --foreground: oklch(96% .008 85);         /* warm ivory */
+  --foreground: oklch(97% .004 260);        /* chrome white */
   --card-foreground: var(--foreground);
   --popover-foreground: var(--foreground);
   --secondary-foreground: var(--foreground);
   --accent-foreground: var(--foreground);
-  --muted-foreground: oklch(75% .022 255);  /* cool slate */
+  --muted-foreground: oklch(74% .012 260);  /* brushed steel */
 
-  /* Brand gold */
-  --gold: #d4b06a;
-  --gold-rgb: 212 176 106;
-  --gold-soft: #ecd9a9;
+  /* Brand accent — hero red (token names kept as "gold") */
+  --gold: #e3202b;
+  --gold-rgb: 227 32 43;
+  --gold-soft: #ff5a52;
+  --silver: #d9dde3;
   --primary: var(--gold);
-  --primary-foreground: oklch(17% .032 258);
+  --primary-foreground: #ffffff;
   --ring: var(--gold);
 
-  /* Product image backdrop */
-  --ivory: oklch(95.5% .008 250);
+  /* Product image backdrop — light chrome */
+  --ivory: oklch(94% .004 260);
 
-  --destructive: oklch(63% .19 25);
-  --destructive-foreground: oklch(98% .005 85);
+  --destructive: oklch(72% .16 55);
+  --destructive-foreground: oklch(15% .02 20);
 
   --ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 }
 
 @theme inline {
-  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Saira Condensed", "Arial Narrow", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-deep: var(--deep);
@@ -69,6 +73,7 @@
   --color-ivory: var(--ivory);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
+  --color-silver: var(--silver);
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
@@ -80,15 +85,17 @@
   html, body { overflow-x: clip; }
   body {
     background:
-      radial-gradient(1200px 600px at 85% -10%, rgb(var(--gold-rgb) / .06), transparent 60%),
+      radial-gradient(1100px 620px at 85% -10%, rgb(var(--gold-rgb) / .16), transparent 60%),
+      radial-gradient(900px 500px at 0% 100%, rgb(var(--gold-rgb) / .08), transparent 60%),
+      radial-gradient(rgb(255 255 255 / .035) 1px, transparent 1.3px) 0 0 / 6px 6px,
       var(--background);
     background-attachment: fixed;
     color: var(--foreground);
     font-family: var(--font-sans);
-    font-weight: 300;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, .display { font-family: var(--font-serif); font-weight: 400; }
+  h1, h2, h3, .display { font-family: var(--font-serif); font-weight: 700; font-style: italic; letter-spacing: .01em; }
   ::selection { background: rgb(var(--gold-rgb) / .35); }
   input, select, textarea { color-scheme: dark; }
   :focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
@@ -98,8 +105,8 @@
   .container-x { width: 100%; max-width: 80rem; margin-inline: auto; padding-inline: 1.25rem; }
   @media (min-width: 640px) { .container-x { padding-inline: 2rem; } }
 
-  .eyebrow { font-size: 10px; letter-spacing: .32em; text-transform: uppercase; color: var(--primary); }
-  .display-xl { font-family: var(--font-serif); text-transform: uppercase; line-height: .95; letter-spacing: .01em; }
+  .eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--primary); }
+  .display-xl { font-family: var(--font-serif); font-weight: 800; font-style: italic; text-transform: uppercase; line-height: .92; letter-spacing: .005em; }
 
   .field {
     width: 100%; background: rgb(255 255 255 / .02); border: 1px solid var(--input); border-radius: var(--radius);
@@ -120,9 +127,9 @@
 
   .gold-line { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 
-  /* Animated gold gradient text */
+  /* Animated red-metal gradient text */
   .text-shimmer {
-    background: linear-gradient(110deg, var(--gold) 20%, var(--gold-soft) 40%, #fff6dc 50%, var(--gold-soft) 60%, var(--gold) 80%);
+    background: linear-gradient(110deg, #b3101a 15%, var(--gold) 35%, #ffb3ad 50%, var(--gold) 65%, #b3101a 85%);
     background-size: 250% 100%;
     -webkit-background-clip: text; background-clip: text; color: transparent;
     animation: text-shimmer 6s linear infinite;
@@ -147,7 +154,33 @@
 
   /* Card lift */
   .lift { transition: transform .5s var(--ease-out-expo), box-shadow .5s var(--ease-out-expo), border-color .3s; }
-  .lift:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -20px rgb(0 0 0 / .7), 0 0 0 1px rgb(var(--gold-rgb) / .25); }
+  .lift:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -20px rgb(0 0 0 / .8), 0 0 0 1px rgb(var(--gold-rgb) / .45), 0 0 40px -10px rgb(var(--gold-rgb) / .45); }
+
+  /* Chrome silver text (like "BASHA" in the logo) */
+  .text-chrome {
+    background: linear-gradient(180deg, #ffffff 0%, #e9ecf0 38%, #9aa1ab 52%, #f3f5f7 70%, #b9bec6 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  /* Glossy red text (like "GADGETS" in the logo) */
+  .text-hero-red {
+    background: linear-gradient(180deg, #ff6a60 0%, #e3202b 45%, #9e0c15 55%, #e3202b 80%, #ff4b42 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  /* Comic-book halftone dots; put on an absolutely positioned layer */
+  .halftone {
+    background-image: radial-gradient(rgb(var(--gold-rgb) / .55) 1.2px, transparent 1.6px);
+    background-size: 9px 9px;
+    mask-image: linear-gradient(135deg, black, transparent 60%);
+  }
+  /* Radiating speed lines from the centre */
+  .speed-lines {
+    background: repeating-conic-gradient(from 0deg at 50% 50%, rgb(var(--gold-rgb) / .16) 0deg 2deg, transparent 2deg 9deg);
+    mask-image: radial-gradient(circle at center, transparent 18%, black 40%, transparent 72%);
+  }
+  /* Cut-corner "hero panel" shapes */
+  .panel-cut { clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); }
+  .btn-cut { clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
 
   /* Glass surface */
   .glass { background: color-mix(in oklab, var(--card) 70%, transparent); backdrop-filter: blur(14px); }
@@ -188,10 +221,16 @@
 
 @keyframes slow-spin { to { transform: rotate(360deg); } }
 .animate-slow-spin { animation: slow-spin 60s linear infinite; }
+.brand-hands { animation: brand-hands 2.4s cubic-bezier(.16,1,.3,1) both; }
+@keyframes brand-hands { from { transform: rotate(-200deg); opacity: 0; } to { transform: none; opacity: 1; } }
+
 .animate-slow-spin-rev { animation: slow-spin 90s linear infinite reverse; }
 
 @keyframes float { 0%, 100% { transform: translateY(0) rotate(-12deg); } 50% { transform: translateY(-16px) rotate(-9deg); } }
 .animate-float { animation: float 7s ease-in-out infinite; }
+
+@keyframes energy { 0%, 100% { opacity: .65; } 50% { opacity: 1; } }
+.animate-energy { animation: energy 3s ease-in-out infinite; }
 
 @keyframes glow-pulse { 0%, 100% { opacity: .55; transform: scale(1); } 50% { opacity: .9; transform: scale(1.06); } }
 .animate-glow { animation: glow-pulse 5s ease-in-out infinite; }
@@ -220,7 +259,7 @@
 .no-scrollbar { scrollbar-width: none; }
 
 /* Scroll progress */
-.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 70; transform-origin: left; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--gold), var(--gold-soft)); }
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 70; transform-origin: left; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, #9e0c15, var(--gold), var(--silver)); box-shadow: 0 0 12px rgb(var(--gold-rgb) / .8); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }

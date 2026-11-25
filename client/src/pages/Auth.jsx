@@ -31,8 +31,8 @@ export default function Auth() {
   return (
     <div className="container-x flex justify-center py-20">
       <div className="w-full max-w-md">
-        <p className="eyebrow mb-4 text-center">Your Everentia account</p>
-        <h1 className="display-xl text-center text-5xl">{mode === 'login' ? 'WELCOME BACK.' : 'JOIN EVERENTIA.'}</h1>
+        <p className="eyebrow mb-4 text-center">Your Basha Gadgets account</p>
+        <h1 className="display-xl text-center text-5xl">{mode === 'login' ? 'WELCOME BACK.' : 'JOIN THE SQUAD.'}</h1>
         <div className="mt-10 grid grid-cols-2 border border-border">
           {[['login', 'Sign in'], ['register', 'Create account']].map(([k, l]) => (
             <button key={k} onClick={() => { setMode(k); setErr(null); }} className={cx('py-3 text-[11px] uppercase tracking-[0.22em]', mode === k ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground')}>{l}</button>

@@ -32,7 +32,7 @@ export default function Cart() {
 
   return (
     <>
-      <PageHeader eyebrow="Your Selection" lines={['YOUR', 'SELECTION.']}>Review your selected EVERENTIA timepieces.</PageHeader>
+      <PageHeader eyebrow="Your Selection" lines={['YOUR', 'SELECTION.']}>Review your selected Basha Gadgets timepieces.</PageHeader>
       <div className="container-x py-10">
         {loading ? <Spinner /> : error ? <ErrorNote error={error} /> : !lines.length ? (
           <Empty title="Your selection is empty" action={<Button to="/collection">Explore collection</Button>}>
